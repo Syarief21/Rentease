@@ -1,0 +1,513 @@
+/* ==================== PROFIL SIDEBAR SLIDE ==================== */
+.profile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px; /* posisi default keluar layar */
+  width: 300px;
+  height: auto;
+  max-height: 90vh; 
+  overflow-y: auto; 
+  background: #ffffff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px 20px;
+  font-family: "Poppins";
+  transition: right 0.4s ease, opacity 0.3s ease;
+  z-index: 1002; /* lebih tinggi dari navbar */
+}
+
+.profile-sidebar.active {
+  right: 0;
+}
+
+/* ==================== FOTO PROFIL ==================== */
+.profile-photo {
+  display: flex;
+  cursor: pointer; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.profile-photo img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3498db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+}
+
+.profile-photo h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* ==================== INFO USER ==================== */
+.profile-sidebar .user-info {
+  text-align: left;
+}
+
+.profile-sidebar .user-info p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ==================== TOMBOL LOGOUT ==================== */
+.profile-sidebar button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto; /* ✅ dorong ke bawah */
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+}
+
+.profile-sidebar button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* ==================== ICON PROFIL DI NAVBAR ==================== */
+.profile-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1003; 
+  margin-right: 30px;
+}
+
+.profile-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ==================== OVERLAY BELAKANG ==================== */
+.profile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1001; /* ✅ di bawah sidebar tapi di atas navbar */
+}
+
+.profile-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.profile-photo .detail-akun {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* ======================== OVERLAY EDIT PROFIL ======================== */
+#editProfileOverlay {
+  display: none; /* default hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ======================== POPUP BOX ======================== */
+.edit-profile-box {
+  width: 360px;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* tampil saat overlay aktif */
+#editProfileOverlay[style*="flex"] .edit-profile-box {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ======================== JUDUL ======================== */
+.edit-profile-box h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* ======================== INPUT FIELD ======================== */
+.edit-profile-box input[type="text"],
+.edit-profile-box input[type="email"],
+.edit-profile-box input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.edit-profile-box input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* ======================== PREVIEW FOTO ======================== */
+#previewFoto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px auto;
+  display: block;
+  object-fit: cover;
+  border: 2px solid #4a90e2;
+}
+
+/* ======================== BUTTON GROUP ======================== */
+.edit-profile-box .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.edit-profile-box .button-group button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-profile-box .button-group .kirim {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.edit-profile-box .button-group .kirim:hover {
+  background-color: #357abd;
+}
+
+.edit-profile-box .button-group .batal {
+  background-color: #878383;
+}
+
+.edit-profile-box .button-group .batal:hover {
+  background-color: #424242;
+}
+
+/* ======================== OVERLAY ======================== */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+
+/* ======================== INPUT FIELD ======================== */
+.edit-profile-box input[type="text"],
+.edit-profile-box input[type="email"],
+.edit-profile-box input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.edit-profile-box input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* ======================== PREVIEW FOTO ======================== */
+#previewFoto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px auto;
+  display: block;
+  object-fit: cover;
+  border: 2px solid #0077ff;
+}
+
+/* ======================== BUTTON GROUP ======================== */
+.edit-profile-box .button-group,
+.success-box .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.edit-profile-box .button-group button,
+.success-box button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-profile-box .button-group .kirim,
+.success-box button.kirim {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.edit-profile-box .button-group .kirim:hover,
+.success-box button.kirim:hover {
+  background-color: #357abd;
+}
+
+.edit-profile-box .button-group .batal {
+  background-color: #878383;
+}
+
+.edit-profile-box .button-group .batal:hover {
+  background-color: #424242;
+}
+
+/* ======================== ANIMASI FADE IN ======================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Overlay */
+.edit-profile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup */
+.edit-profile-popup {
+  background: #182026;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 380px;
+  color: white;
+  position: relative;
+}
+
+.close-edit {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.edit-profile-popup h2 {
+  text-align: center;
+  color: #e4e4e4;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+/* Foto */
+.form-group label {
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.photo-preview-container {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #000000;
+  background: #0d1216;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#previewFoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#editFoto {
+  display: block;
+  margin: 0 auto 18px;
+  color: white;
+  font-size: 13px;
+}
+
+/* Input */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Tombol */
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-simpan {
+  background: #db0f0f;
+  color: white;
+}
+
+.btn-simpan:hover {
+  background: #851c1c;
+}
+
+.btn-tutup {
+  background: #95a5a6;
+  color: white;
+}
+
+.btn-tutup:hover {
+  background: #7f8c8d;
+}
+
+/* Modal Sukses */
+.success-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.success-content {
+  background: white;
+  padding: 28px 35px;
+  border-radius: 10px;
+  text-align: center;
+  animation: popup 0.3s ease;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-content h3 {
+  color: #000000;
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.success-content p {
+  color: #444;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+.success-content button {
+  background: #fb0101;
+  color: white;
+  border: none;
+  padding: 9px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.success-content button:hover {
+  background: #7f2525;
+}

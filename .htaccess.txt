@@ -1,0 +1,27 @@
+RewriteEngine On
+RewriteBase /RENT/sewakos/
+
+# Mengarahkan semua permintaan ke index.php kecuali untuk file yang sudah ada
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Aturan untuk mencegah akses langsung ke file sensitif
+RewriteRule ^backend/config/.*$ - [F,L]
+RewriteRule ^backend/models/.*$ - [F,L]
+RewriteRule ^backend/session\.php$ - [F,L]
+RewriteRule ^uploads/.*$ - [F,L]
+
+# Mengizinkan akses ke file frontend
+RewriteRule ^assets/ - [L]
+RewriteRule ^views/ - [L]
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^backend/helpers/ - [L]
+RewriteRule ^backend/controllers/ - [L]
+
+# Atur error reporting untuk file PHP
+<Files "*.php">
+    php_flag display_errors off
+    php_flag log_errors on
+    php_value error_log /xampp/htdocs/RENT/sewakos/logs/php_errors.log
+</Files>

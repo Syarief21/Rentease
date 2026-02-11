@@ -1,0 +1,377 @@
+/* ===================== RESET & BASE ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================== BODY ===================== */
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background: url("../../assets/img/OIP (9).jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Overlay lembut agar teks & card tetap jelas di atas foto */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 20, 50, 0.45);
+  z-index: 0;
+}
+
+/* Supaya card login di atas overlay */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== CARD REGISTER ===================== */
+main {
+  position: relative;
+  display: flex;
+  width: 900px;
+  height: 500px; /* sama dengan login */
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+  animation: fadeSlideIn 1s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity:0; transform: translateY(40px);}
+  to { opacity:1; transform: translateY(0);}
+}
+
+/* ===================== KIRI: FORM REGISTER ===================== */
+.auth-left {
+  flex: 1;
+  padding: 50px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeInLeft 1.3s ease both;
+}
+
+@keyframes fadeInLeft {
+  from { opacity:0; transform: translateX(-50px);}
+  to { opacity:1; transform: translateX(0);}
+}
+
+.auth-left h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  animation: fadeUp 1.2s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(15px);}
+  to { opacity:1; transform: translateY(0);}
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #5e8fc0;
+  box-shadow: 0 0 5px #5e8fc055;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #5e8fc0, #2c3e50);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.auth-left p {
+  text-align: center;
+  margin-top: 20px;
+  color: #444;
+}
+
+.auth-left a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-left a:hover {
+  color: #5e8fc0;
+}
+
+/* ===================== KANAN: LOGO & DESKRIPSI ===================== */
+.auth-right {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(135deg, #2c3e50, #5e8fc0);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  animation: fadeInRight 1.3s ease both;
+  overflow: hidden;
+}
+
+@keyframes fadeInRight {
+  from { opacity:0; transform: translateX(50px);}
+  to { opacity:1; transform: translateX(0);}
+}
+
+/* Efek cahaya di belakang logo */
+.auth-right::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  animation: pulseLight 6s ease-in-out infinite;
+}
+
+@keyframes pulseLight {
+  0%,100% { transform: scale(1); opacity: 0.6;}
+  50% { transform: scale(1.2); opacity: 1;}
+}
+
+/* Logo */
+.auth-right .logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0);}
+  50% { transform: translateY(-8px);}
+}
+
+.auth-right p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 320px;
+  animation: fadeUp 1.5s ease both;
+}
+
+/* Modal Overlay */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+      }
+
+      /* Modal Box */
+      .modal-box {
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        width: 330px;
+        text-align: center;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      .modal-box h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #333;
+      }
+
+      .modal-box p {
+        margin-bottom: 20px;
+        color: #555;
+      }
+
+      .modal-btn {
+        background: #df0c0c;
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        border: none;
+      }
+
+      .modal-btn:hover {
+        background: hsl(0, 64%, 31%);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:768px){
+  main{
+    flex-direction: column;
+    width:90%;
+    height:auto;
+  }
+  .auth-right{
+    border-radius: 0 0 16px 16px;
+    padding:30px;
+  }
+  .auth-right p{
+    font-size:14px;
+  }
+}
+
+/* ===================== PAGE TRANSITION ===================== */
+.fade-out {
+  opacity:0;
+  transform: scale(0.98);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Tombol Google */
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.btn-google img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-google:hover {
+  background-color: #f1f1f1;
+  border-color: #999;
+}
+
+/* ===================== LOADING OVERLAY ===================== */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.loading-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.spinner {
+  width: 65px;
+  height: 65px;
+  border: 6px solid #cfd8dc;
+  border-top-color: #2c3e50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 10px rgba(44, 62, 80, 0.3);
+}
+
+@keyframes spin {
+  to {
+  transform: rotate(360deg);
+ }
+}

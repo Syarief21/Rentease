@@ -1,0 +1,127 @@
+/* Reset & Body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Card Edit Kos - Stylish */
+.edit-property {
+    background: linear-gradient(145deg, #ffffff, #e0f2f1);
+    padding: 20px 18px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 480px;
+    min-height: 400px;
+    box-sizing: border-box; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.edit-property:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+}
+
+/* Judul Form */
+.edit-property h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    color: #00796b;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Input & Textarea Stylish */
+.form-group input,
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #b2dfdb;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box; 
+    background-color: #f9fdfd;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #00bfa5;
+    box-shadow: 0 0 8px rgba(0,191,165,0.25);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Preview Foto */
+.form-group img {
+    margin-top: 8px;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 120px;
+}
+
+/* Tombol Submit Stylish */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #00bfa5, #00796b);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #00796b, #00bfa5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .edit-property {
+        max-width: 90%;
+        padding: 18px 15px;
+    }
+    .edit-property h2 {
+        font-size: 20px;
+    }
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+    .btn-primary {
+        font-size: 15px;
+        padding: 9px;
+    }
+}

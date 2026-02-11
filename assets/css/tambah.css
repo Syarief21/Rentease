@@ -1,0 +1,112 @@
+/* Reset & Body */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f5f7fa;
+}
+
+/* Container agar card di tengah konten dashboard */
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Card Tambah Kos - Modern UI */
+.add-property-card {
+    background: #ffffff;
+    padding: 25px 28px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.add-property-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.17);
+}
+
+/* Judul */
+.add-property-card h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Form group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Input modern */
+.form-group input,
+.form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fafafa;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #00bfa5;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 191, 165, 0.25);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Tombol modern */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #00c2a2, #008f77);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #008f77, #00c2a2);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .add-property-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+    .add-property-card h2 {
+        font-size: 20px;
+    }
+}

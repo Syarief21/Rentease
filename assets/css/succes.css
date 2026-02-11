@@ -1,0 +1,83 @@
+/* ==================== RESET ==================== */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { min-height:100vh; overflow:hidden; background:linear-gradient(120deg, #e0e4ff, #f0f3f8, #dbe9f4, #cde1ff); background-size:400% 400%; animation: gradientShift 25s ease infinite; }
+
+    @keyframes gradientShift {
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
+    }
+
+  .navbar .logo img {
+  height: 100px; /* sesuaikan dengan tinggi navbar */
+  object-fit: contain;
+  
+}
+
+    /* ==================== NAVBAR ==================== */
+    nav.navbar { background: rgba(255,255,255,0.12); backdrop-filter: blur(14px); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-radius: 0 0 16px 16px; }
+    .nav-container { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; justify-content:flex-start; align-items:center; }
+    .nav-container .logo a { font-size:2rem; font-weight:700; color:#6c63ff; text-decoration:none; transition: color 0.3s; }
+    .nav-container .logo a:hover { color:#6c63ff; }
+
+    /* ==================== SUCCESS CARD ==================== */
+    .success-section { min-height:80vh; display:flex; justify-content:center; align-items:center; position:relative; padding:2rem 1rem; }
+    .success-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(18px); border-radius: 24px; padding:36px 40px; text-align:center; max-width:500px; border:1px solid rgba(255,255,255,0.25); box-shadow:0 14px 50px rgba(0,0,0,0.15); position: relative; overflow:hidden; animation: popIn 0.6s ease forwards; z-index:1;}
+    @keyframes popIn {0%{transform:scale(0.85);opacity:0;}100%{transform:scale(1);opacity:1;}}
+    .success-card h2 { font-size:1.8rem; font-weight:700; color:#4b4f60; margin-bottom:12px; }
+    .success-card p { font-size:1rem; color:#2a2d3f; margin-bottom:20px; }
+    .success-card button { padding:12px 26px; font-weight:700; font-size:1rem; border-radius:16px; border:none; background:linear-gradient(135deg, #6c63ff, #8570ff); color:#fff; cursor:pointer; transition: all 0.35s ease; position:relative; overflow:hidden; }
+    .success-card button:hover { transform: scale(1.05) rotate(-0.5deg); box-shadow: 0 12px 32px rgba(108, 99, 255, 0.5); }
+    .success-card button::after { content:""; position:absolute; width:100px; height:100px; background:rgba(255,255,255,0.2); border-radius:50%; transform:scale(0); opacity:0; pointer-events:none; transition: transform 0.5s, opacity 1s; }
+    .success-card button:active::after { transform:scale(1); opacity:1; transition:0s; }
+
+    /* ==================== FIREWORKS ==================== */
+    .fireworks { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:0; }
+
+    .rocket { position:absolute; bottom:0; width:6px; height:20px; background-color:white; border-radius:50%; }
+
+    .firework-particle { position:absolute; width:6px; height:6px; border-radius:50%; opacity:0.9; animation: explode 1s forwards; }
+
+    @keyframes explode {
+      0% { transform: translate(0,0) scale(1); opacity:1; }
+      100% { transform: translate(var(--dx), var(--dy)) scale(0.5); opacity:0; }
+    }
+
+    /* ==================== CONFETTI ==================== */
+    .confetti { position:absolute; top:-10px; width:10px; height:10px; background:linear-gradient(45deg, #ff3d00,#ffea00,#00e5ff,#76ff03,#ff00c8); border-radius:50%; animation: confettiFall 3s linear infinite; opacity:0.9; }
+    @keyframes confettiFall { 0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(350px) rotate(360deg);opacity:0;} }
+
+    /* ==================== FOOTER ==================== */
+    footer { width:100%; padding:16px 0; background: rgba(255,255,255,0.12); backdrop-filter: blur(14px); text-align:center; color:#4b4f60; font-size:0.9rem; border-top:1px solid rgba(200,200,200,0.3); box-shadow:0 -4px 10px rgba(0,0,0,0.05); }
+
+    @media (max-width:500px) { .success-card{padding:24px 20px;border-radius:20px;} .success-card h2{font-size:1.5rem;} .success-card p{font-size:0.95rem;} .success-card button{padding:10px 18px;font-size:0.95rem;} }
+
+    /* Overlay loading */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.8);
+  display: none; /* default hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Spinner */
+#loading-overlay .spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: #6c63ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

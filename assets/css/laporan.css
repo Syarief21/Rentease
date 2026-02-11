@@ -1,0 +1,90 @@
+.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 1rem 2rem;
+        position: relative;
+    }
+    .navbar .logo a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-left: 2rem; /* posisi logo */
+    }
+
+    /* Tombol pengaturan (sidebar dropdown) */
+    .sidebar-dropdown {
+        position: relative;
+        margin-right: 0.5rem;
+    }
+    .sidebar-btn {
+        background-color: #e74c3c;
+        border: none;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .sidebar-btn:hover {
+        background-color: #c0392b;
+    }
+
+    .sidebar-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: #fff;
+        color: #333;
+        min-width: 160px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+    .sidebar-content a {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s;
+    }
+    .sidebar-content a:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Konten utama */
+    .admin-dashboard {
+        padding: 2rem;
+    }
+    .table-container {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Tabel Transaksi */
+    .transaction-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .transaction-table th {
+        background-color: #3498db;
+        color: #fff;
+        padding: 12px;
+        border-bottom: 2px solid #2980b9;
+    }
+    .transaction-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+    .transaction-table tr:hover {
+        background-color: #f2f2f2;
+    }
